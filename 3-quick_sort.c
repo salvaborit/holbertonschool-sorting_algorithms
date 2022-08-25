@@ -2,7 +2,7 @@
 
 
 /**
- * swap_a - sways two elements of an array of ints
+ * swap_a - swaps two elements of an array of ints
  * @a: pointer to array value
  * @b: pointer to array value
  */

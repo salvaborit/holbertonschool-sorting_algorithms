@@ -33,6 +33,11 @@ void swap_nodes(listint_t *node1, listint_t *node2);
 void quicksort(int *a, int start, int end, int *fullArray, int fullSize);
 int partition(int *a, int start, int end, int *fullArray, int fullSize);
 
+/**
+ * swap_a - swaps two elements of an array of ints
+ * @a: pointer to array value
+ * @b: pointer to array value
+ */
 void swap_a(int *a, int *b); /* swap SBA */
 /* void swap(int *xp, int *yp); swap LUIS */
 
