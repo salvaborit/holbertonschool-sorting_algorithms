@@ -33,7 +33,7 @@ void swap_nodes(listint_t *node1, listint_t *node2);
 void quicksort(int *a, int start, int end, int *fullArray, int fullSize);
 int partition(int *a, int start, int end, int *fullArray, int fullSize);
 
-void swap_a(int *a, int *b); /* SBA */
+/* void swap_a(int *a, int *b); SBA */
 /* void swap(int *xp, int *yp); LUIS */
 
 #endif /* SORT_H */
