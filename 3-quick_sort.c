@@ -2,6 +2,20 @@
 
 
 /**
+ * swap_a - sways two elements of an array of ints
+ * @a: pointer to array value
+ * @b: pointer to array value
+ */
+void swap_a(int *a, int *b)
+{
+	int temp = 0;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+/**
  * quick_sort - sorts an array of ints using the Quick sort algo
  * @array: array to sort
  * @size: size of array to sort
@@ -64,16 +78,3 @@ int partition(int *a, int start, int end, int *fullArray, int fullSize)
 	return (pIndex);
 }
 
-/**
- * swap_a - sways two elements of an array of ints
- * @a: pointer to array value
- * @b: pointer to array value
- */
-void swap_a(int *a, int *b)
-{
-	int temp = 0;
-
-	temp = *a;
-	*a = *b;
-	*b = temp;
-}
