@@ -1,5 +1,6 @@
 #include "sort.h"
 
+int swapCount = 0;
 
 /**
  * swap_a - swaps two elements of an array of ints
@@ -62,19 +63,32 @@ void quicksort(int *a, int start, int end, int *fullArray, int fullSize)
  */
 int partition(int *a, int start, int end, int *fullArray, int fullSize)
 {
-	int i = start, pivot = a[end], pIndex = start;
+	int i = start, pivot = a[end], j = 0;\
 
+	// printf("Partition\n");
 	for (; i < end; i++)
 	{
-		if (a[i] <= pivot)
+		// printf("a[%d] = %d\nstart = %d\nend = %d\npivot = %d\n\n", i, a[i], start, end, pivot);
+		if (a[i] > pivot)
 		{
-			swap_a(&a[i], &a[pIndex]);
-			pIndex++;
-			print_array(fullArray, fullSize);
+			for (j = i + 1; j < end; j++)
+			{
+				if (a[j] <= pivot)
+				{
+					// printf("swap %d (i) for %d (j)\n", a[i], a[j]);
+					swap_a(&a[i], &a[j]);
+					print_array(fullArray, fullSize);
+					break;
+				}
+			}
+			if (pivot < a[i])
+			{
+				// printf("swap %d (i) for %d (end)\n", a[i], a[end]);
+				swap_a(&a[i], &a[end]);
+				print_array(fullArray, fullSize);
+			}
+			pivot = a[end];
 		}
 	}
-	swap_a(&a[pIndex], &a[end]);
-	print_array(fullArray, fullSize);
-	return (pIndex);
+	return (i);
 }
-
