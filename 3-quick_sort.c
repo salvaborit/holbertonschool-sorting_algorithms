@@ -65,17 +65,17 @@ int partition(int *a, int start, int end, int *fullArray, int fullSize)
 {
 	int i = start, pivot = a[end], j = 0;\
 
-	// printf("Partition\n");
+/*	printf("Partition\n"); */
 	for (; i < end; i++)
 	{
-		// printf("a[%d] = %d\nstart = %d\nend = %d\npivot = %d\n\n", i, a[i], start, end, pivot);
+	/*	printf("a[%d] = %d\nstart = %d\nend = %d\npivot = %d\n\n", i, a[i], start, end, pivot); */
 		if (a[i] > pivot)
 		{
 			for (j = i + 1; j < end; j++)
 			{
 				if (a[j] <= pivot)
 				{
-					// printf("swap %d (i) for %d (j)\n", a[i], a[j]);
+				/*	printf("swap %d (i) for %d (j)\n", a[i], a[j]); */
 					swap_a(&a[i], &a[j]);
 					print_array(fullArray, fullSize);
 					break;
@@ -83,7 +83,7 @@ int partition(int *a, int start, int end, int *fullArray, int fullSize)
 			}
 			if (pivot < a[i])
 			{
-				// printf("swap %d (i) for %d (end)\n", a[i], a[end]);
+			/*	printf("swap %d (i) for %d (end)\n", a[i], a[end]); */
 				swap_a(&a[i], &a[end]);
 				print_array(fullArray, fullSize);
 			}
