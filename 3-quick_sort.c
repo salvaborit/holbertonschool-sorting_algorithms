@@ -1,6 +1,5 @@
 #include "sort.h"
 
-int swapCount = 0;
 
 /**
  * swap_a - swaps two elements of an array of ints
@@ -63,12 +62,15 @@ void quicksort(int *a, int start, int end, int *fullArray, int fullSize)
  */
 int partition(int *a, int start, int end, int *fullArray, int fullSize)
 {
-	int i = start, pivot = a[end], j = 0;\
+	int i = start, pivot = a[end], j = 0;
 
 /*	printf("Partition\n"); */
 	for (; i < end; i++)
 	{
-	/*	printf("a[%d] = %d\nstart = %d\nend = %d\npivot = %d\n\n", i, a[i], start, end, pivot); */
+	/**
+	 * printf("a[%d] = %d\nstart = %d\nend = %d\npivot = %d\n\n",
+	 *	 i, a[i], start, end, pivot);
+	 */
 		if (a[i] > pivot)
 		{
 			for (j = i + 1; j < end; j++)
