@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+extern int swapCount;
+
 /**
  * struct listint_s - Doubly linked list node
  *

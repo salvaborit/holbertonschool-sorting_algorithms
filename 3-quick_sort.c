@@ -1,5 +1,6 @@
 #include "sort.h"
 
+int swapCount = 0;
 
 /**
  * swap_a - swaps two elements of an array of ints
@@ -64,17 +65,22 @@ int partition(int *a, int start, int end, int *fullArray, int fullSize)
 {
 	int i = start, pivot = a[end], pIndex = start;
 
+	// printf("dtsrting s new psrtition\n");
 	for (; i < end; i++)
 	{
-		if (a[i] <= pivot)
+		/*printf("Iteration %d (i)\nstart = %d\nend = %d\npivot = %d\npIndex: = %d\n\n", i, start, end, pivot, pIndex);*/
+		if (a[i] <= pivot/* && i != pIndex*/)
 		{
 			swap_a(&a[i], &a[pIndex]);
 			pIndex++;
 			print_array(fullArray, fullSize);
+			// swapCount++;
+			// printf("swapCount = %d\n", swapCount);
 		}
 	}
 	swap_a(&a[pIndex], &a[end]);
 	print_array(fullArray, fullSize);
+	// swapCount++;
+	// printf("swapCount = %d\n", swapCount);
 	return (pIndex);
 }
-
