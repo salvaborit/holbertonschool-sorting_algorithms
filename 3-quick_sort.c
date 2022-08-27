@@ -63,24 +63,32 @@ void quicksort(int *a, int start, int end, int *fullArray, int fullSize)
  */
 int partition(int *a, int start, int end, int *fullArray, int fullSize)
 {
-	int i = start, pivot = a[end], pIndex = start;
+	int i = start, pivot = a[end], j = 0;\
 
-	// printf("dtsrting s new psrtition\n");
+	// printf("Partition\n");
 	for (; i < end; i++)
 	{
-		/*printf("Iteration %d (i)\nstart = %d\nend = %d\npivot = %d\npIndex: = %d\n\n", i, start, end, pivot, pIndex);*/
-		if (a[i] <= pivot/* && i != pIndex*/)
+		// printf("a[%d] = %d\nstart = %d\nend = %d\npivot = %d\n\n", i, a[i], start, end, pivot);
+		if (a[i] > pivot)
 		{
-			swap_a(&a[i], &a[pIndex]);
-			pIndex++;
-			print_array(fullArray, fullSize);
-			// swapCount++;
-			// printf("swapCount = %d\n", swapCount);
+			for (j = i + 1; j < end; j++)
+			{
+				if (a[j] <= pivot)
+				{
+					// printf("swap %d (i) for %d (j)\n", a[i], a[j]);
+					swap_a(&a[i], &a[j]);
+					print_array(fullArray, fullSize);
+					break;
+				}
+			}
+			if (pivot < a[i])
+			{
+				// printf("swap %d (i) for %d (end)\n", a[i], a[end]);
+				swap_a(&a[i], &a[end]);
+				print_array(fullArray, fullSize);
+			}
+			pivot = a[end];
 		}
 	}
-	swap_a(&a[pIndex], &a[end]);
-	print_array(fullArray, fullSize);
-	// swapCount++;
-	// printf("swapCount = %d\n", swapCount);
-	return (pIndex);
+	return (i);
 }
